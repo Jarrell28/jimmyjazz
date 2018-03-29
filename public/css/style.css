@@ -1,0 +1,758 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 12px;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+}
+
+@font-face {
+    font-family: LeagueGothic;
+    src: url("../fonts/LeagueGothic-Regular.otf") format("opentype");
+}
+
+.topNav-full-container{
+    border-bottom: 5px solid #cccccc;
+    background-image: url("http://www.jimmyjazz.com/sites/all/themes/jimmyjazz_2_5/images/bg-header.png");
+}
+
+.topNav-container{
+    width: 68%;
+    background-image: url("http://www.jimmyjazz.com/sites/all/themes/jimmyjazz_2_5/images/header_bg.png");
+}
+
+.social-links img {
+    background-color: grey;
+    width: 27px;
+    height: 27px;
+}
+
+.topNav-links{
+    font-size: 10px;
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 13px;
+}
+
+.topNav-links a{
+    padding-top: 0;
+}
+
+.topNav-links li:not(:last-child){
+    border-right: 1px dotted grey;
+}
+
+#cart-img{
+    width: 20px;
+    height: 20px;
+}
+
+.cart-link span {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: "LeagueGothic";
+    color: #000;
+}
+
+.shopping-bag{
+    width: 400px;
+    color: #666666;
+    text-align: left;
+    left: -188px;
+    border-top: 3px solid #666666;
+}
+
+.shopping-bag-items{
+    max-height: 384px;
+    min-height: 100px;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 1px solid #cccccc;
+}
+
+.empty-cart{
+    padding: 50px 0px 50px 65px;
+    font-size: 12px;
+}
+
+.sub-total{
+    font-size: 11px;
+    color: #666666;
+    border-bottom: 1px dotted #cccccc;
+}
+
+#sub-total-span{
+    padding-left: 60px;
+}
+
+.sub-total-price{
+    font-size: 26px;
+    padding-right: 12px;
+}
+
+.shopping-bag-checkout{
+
+}
+
+.shopping-bag-checkout-right a{
+    font-size: 28px;
+    font-family: "LeagueGothic";
+    font-style: italic;
+    color: #006633;
+    text-decoration: none;
+}
+
+
+#close-button-link{
+    top: 6px;
+}
+
+#close-button:hover #checkout-dropdown{
+    display: none !important;
+}
+
+#close-button{
+    width: 20px;
+    height: 20px;
+}
+
+
+#close-button:hover{
+    cursor: pointer;
+}
+
+.brand-name{
+    font-size: 35px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Coda Caption', sans-serif;
+}
+
+.search-form{
+    width: 40%;
+    margin-right: 35px;
+}
+
+.search-bar{
+    border-radius: 13px;
+    border: 1px solid #cccccc;
+    z-index: 10;
+}
+
+.search-bar-input{
+    border: none;
+    background-color: transparent;
+    margin: 3px 20px !important;
+}
+
+.search-bar-input:focus{
+    -webkit-border-radius: 2px !important;
+    -moz-border-radius: 2px !important;
+    border-radius: 0px !important;
+}
+
+.search-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: "LeagueGothic";
+}
+
+.mainNav{
+
+}
+
+.mainNav li{
+    font-size: 24px;
+    font-family: "LeagueGothic";
+    border-left: 2px solid #cccccc;
+}
+
+.mainNav li:last-child{
+    border-right: 2px solid #cccccc;
+}
+
+.mainNav a{
+    padding: 0 11px !important;
+
+}
+
+.mainNav div a:first-child {
+    font-family: "Arial";
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #999;
+}
+
+.mainNav div a:not(:first-child) {
+    font-family: "Arial";
+    font-size: 12px;
+    color: #999;
+}
+
+.first-dropdown{
+    left:-265px !important;
+}
+
+.mainNav div:not(:first-child)[class*='dropdown-menu']{
+    min-width: 99vw;
+    left: -245px;
+    box-shadow: 0px 8px 5px 0px rgba(50,50,50,0.3);
+}
+
+
+
+.mainNav-links{
+    padding-left: 9rem !important;
+}
+
+.mainNav-links-container{
+    max-width: 93%;
+}
+
+.mainNav-links-border-right{
+    border-right: 1px dotted #cccccc;
+}
+
+.mainNav div a:hover{
+    background-color: transparent !important;
+    color: #000;
+}
+
+.image-slider img{
+    height: 500px;
+}
+
+.new-arrivals{
+    color: #006633 !important;
+}
+
+.footer-container{
+    border-top: 5px solid #666666;
+    font-size: 10px;
+    padding-bottom: 6rem;
+}
+
+.footer a{
+    color: #000 !important;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.footer li:not(:last-child){
+    border-right: 1px solid #cccccc;
+}
+
+.footer li{
+    margin: 7px 0;
+}
+
+#footer-nav-container{
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.prev-button{
+    background-color: #666666 !important;
+    /*width: 40px;*/
+    /*height: 40px;*/
+}
+
+.next-button{
+    background-color: #666666 !important;
+    /*width: 40px;*/
+    /*height: 40px;*/
+}
+
+#mainNav-link1:hover #mainNav-dropdown1{
+    display: block !important;
+}
+
+#mainNav-link2:hover #mainNav-dropdown2{
+    display: block !important;
+}
+
+#mainNav-link3:hover #mainNav-dropdown3{
+    display: block !important;
+}
+
+#mainNav-link4:hover #mainNav-dropdown4{
+    display: block !important;
+}
+
+#mainNav-link5:hover #mainNav-dropdown5{
+    display: block !important;
+}
+
+#mainNav-link6:hover #mainNav-dropdown6{
+    display: block !important;
+}
+
+#mainNav-link7:hover #mainNav-dropdown7{
+    display: block !important;
+}
+
+#mainNav-link8:hover #mainNav-dropdown8{
+    display: block !important;
+}
+
+#mainNav-link8:hover #mainNav-dropdown8{
+    display: block !important;
+}
+
+#mainNav-link9:hover #mainNav-dropdown9{
+    display: block !important;
+}
+
+#mainNav-link10:hover #mainNav-dropdown10{
+    display: block !important;
+}
+
+#mainNav-link11:hover #mainNav-dropdown11{
+    display: block !important;
+}
+
+#mainNav-link12:hover #mainNav-dropdown12{
+    display: block !important;
+}
+
+#checkout-link:hover #checkout-dropdown{
+    display: block;
+}
+
+.slide-section{
+    width: 71% !important;
+}
+
+.slide-section p {
+    color: #000;
+    font-family: "LeagueGothic";
+    font-size: 30pt;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#carouselExampleControls3{
+    width: 90%;
+    margin-left: 3.1rem;
+}
+
+#shop li a, #shop li a:visited{
+    color: #999999;
+    text-decoration: none;
+}
+
+#shop li{
+    list-style: none;
+}
+
+#shop{
+    font-size: 12px;
+    font-family: 'Arial';
+    text-transform: uppercase;
+}
+
+#shop > li{
+    font-weight: bold;
+       }
+
+#shop ul li a{
+    font-weight: normal;
+}
+
+#shop input {
+    width: 23px;
+    margin-left: 2px;
+}
+
+#shop button{
+    padding: 0 3px;
+}
+
+#shop-items{
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#shop-products{
+    color: #000;
+    box-sizing: border-box;
+}
+
+#shop-products a h4{
+       color: #000;
+    font-size: 24px;
+    margin-bottom: 0;
+    font-family: "LeagueGothic";
+    margin-top: 6px;
+   }
+
+#shop-products a h6{
+    color: #666666;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 0;
+
+}
+
+#shop-products a h5{
+    color: #666666;
+    font-weight: normal;
+    font-size: 11px;
+    margin-bottom: 0;
+
+}
+
+#shop-products a {
+    text-decoration: none;
+}
+
+#shop-products p{
+    font-size: 17px;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 1rem;
+}
+
+#shop-products div{
+    /*margin-right: 30px;*/
+}
+
+/*#shop-products div img:hover{*/
+    /*border: 3px solid #999999;*/
+    /*margin-bottom: -6px;*/
+/*}*/
+
+/*#shop-products div:hover{*/
+    /*margin-bottom: -6px;*/
+
+/*}*/
+
+#shop-products div img{
+    width: 197px;
+    height: 217px;
+}
+
+#product-image{
+    width: 424px;
+    height: 478px;
+}
+
+#product-image img{
+    width: 100%;
+    height: 100%;
+}
+
+#product-info h1{
+    font-family: "LeagueGothic";
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #333333;
+    line-height: 42px;
+}
+
+#product-info h2{
+    font-size: 36px;
+    display: block;
+    color: #999999;
+    font-family: "LeagueGothic";
+    text-transform: uppercase;
+}
+
+#product-info h3{
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+    border-top: 1px dotted #cccccc;
+    border-bottom: 1px dotted #cccccc;
+}
+
+#product-info h6{
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.cart-container{
+    width: 65%;
+}
+
+.cart-breadcrumb a{
+    text-decoration: none;
+    color: #999999;
+}
+
+.cart-breadcrumb{
+    color: #999999;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.cart-breadcrumb h2{
+    font-size: 17px;
+    color: #333333;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.cart-btn{
+    background-repeat: repeat-x;
+    height: 28px;
+    padding: 0px 20px;
+    line-height: 28px;
+    color: #FFFFFF;
+    border: medium none;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    background-image: radial-gradient( rgb(164, 223, 107), rgb(148, 184, 76));
+    background-position: bottom;
+    text-align: center;
+    border-radius: 0 !important;
+}
+
+.cart-btn:hover{
+    color: #ffffff;
+}
+
+.cart-table thead{
+    background-color: #b0b0b0;
+    color: #fff;
+
+}
+
+.cart-table thead tr{
+    height: 18px;
+}
+
+.cart-table thead tr th:nth-child(2){
+    width: 222px;
+}
+
+.cart-table thead tr th:nth-child(3){
+    width: 137px;
+}
+.cart-table thead tr th:nth-child(4){
+    width: 102px;
+}
+.cart-table th:not(:first-child){
+    border-left: 1px solid #ffffff;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.cart-table tbody{
+    vertical-align: top;
+    font-weight: bold;
+    color: #666666;
+    font-size: 10px;
+}
+
+.cart-table tbody tr td{
+    padding-top: 15px;
+}
+
+.cart-table tbody tr td:last-child{
+    color: #333333;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.cart-table tbody tr{
+    border-bottom: 1px dotted #cccccc;
+}
+
+.cart-table tbody a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.cart-subtotal p{
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cart-subtotal p span{
+    font-size: 32px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.cart-subtotal{
+    border-bottom: 1px dotted #cccccc;
+}
+
+.cart-subtotal form button{
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.checkout-cart-container{
+    border-bottom: 1px dotted #000000;
+
+}
+
+.checkout-cart{
+    font-weight: bold;
+    color: #666666;
+    font-size: 10px;
+}
+
+.checkout-cart-subtotal{
+    font-size: 18px;
+    color: #333333;
+    float: right;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.quantity{
+    border: 1px solid #BDBCBD;
+    font-size: 12px;
+    width: 29px;
+    height: 16px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+
+.update-quantity{
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 4px;
+    text-decoration: none;
+    color: #999999;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-results{
+    position: absolute;
+    top: 44px;
+    left: 39%;
+    background-color: #ffffff;
+    z-index: 10000;
+    border: 1px solid #cccccc;
+    width: 590px;
+    height: auto;
+    display: none;
+}
+
+.table-container{
+    border: 1px solid #cccccc;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.table-results thead tr{
+    font-size: 16px;
+    font-weight: bold;
+    color: #006633;
+}
+
+.table-results thead tr td{
+    vertical-align: middle !important;
+}
+
+.table-results thead th{
+    border-bottom: none;
+    width: 60%;
+}
+
+.table-results{
+    width: 90%;
+    border-left: none;
+    border-right: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.table-results a{
+    text-decoration: none;
+    color: #666666;
+}
+
+.table-results tr:hover{
+    background-color: #daebfd !important;
+}
+
+#search-bar{ /* Chrome/Opera/Safari */
+    color: #999999;
+    text-transform: uppercase;
+    font-family: "LeagueGothic";
+    font-size: 20px;
+    font-style: italic;
+}
+
+.recommends{
+    border-bottom: 1px solid #999999;
+    color: #999999;
+    font-size: 24px;
+    font-family: "LeagueGothic";
+    height: 28px;
+    text-transform: uppercase;
+    padding: 0px 10px;
+}
+
+.recommends-links{
+    text-decoration: none;
+    font-family: "LeagueGothic";
+    font-size: 11px;
+    color: #666666;
+}
+
+.recommends-links:hover{
+    text-decoration: none;
+    color: #666666;
+}
+
+.recommends-span{
+    font-size: 24px;
+    line-height: 24px;
+    color: #333333;
+}
+
+.recommends-p{
+    font-size: 17px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.recommends-container{
+    width: 60%;
+}
+
+.recommends-span-2{
+    color: #666666;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: 'Arial';
+}
+
+.recommends-h5{
+    margin-top: -10px;
+
+}
