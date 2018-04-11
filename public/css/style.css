@@ -19,12 +19,21 @@ body{
 
 .topNav-full-container{
     border-bottom: 5px solid #cccccc;
-    background-image: url("http://www.jimmyjazz.com/sites/all/themes/jimmyjazz_2_5/images/bg-header.png");
+    background-image: radial-gradient(rgba(255,255,255, 1) 65%, rgba(235, 235, 235, 0.59));
 }
 
 .topNav-container{
     width: 68%;
-    background-image: url("http://www.jimmyjazz.com/sites/all/themes/jimmyjazz_2_5/images/header_bg.png");
+    /*background-color: transparent;*/
+    /*background-image: radial-gradient(rgba(255,255,255, 1), rgba(255, 255, 255, 0.59));*/
+}
+
+#topNav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding-top: 5px;
 }
 
 .social-links img {
@@ -328,6 +337,10 @@ body{
 
 #mainNav-link12:hover #mainNav-dropdown12{
     display: block !important;
+}
+
+#checkout-link{
+    margin-top: -10px;
 }
 
 #checkout-link:hover #checkout-dropdown{
@@ -755,4 +768,302 @@ body{
 .recommends-h5{
     margin-top: -10px;
 
+}
+
+.container{
+    min-width: 1000px !important;
+
+}
+
+.fluid-container{
+    min-width: 1000px !important;
+}
+
+#footwear-link{
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("http://www.jimmyjazz.com/sites/default/files/slideshow/03_29_18_484x286-HP-CAT1.jpg");
+    width: 484px;
+    height: 286px;
+    display: block;
+}
+
+#clothing-link{
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("http://www.jimmyjazz.com/sites/default/files/slideshow/02_23_18_484x286_Shop_CLothing.jpg");
+    width: 484px;
+    height: 286px;
+    display: block;
+}
+
+#accessory-link{
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("http://www.jimmyjazz.com/sites/default/files/slideshow/02_15_18_484x286-9A1971.jpg");
+    width: 484px;
+    height: 286px;
+    display: block;
+}
+
+#all-link{
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("http://www.jimmyjazz.com/sites/default/files/slideshow/02_14_18_484X286_Shop-New-Nike-for-Her_NEW.jpg");
+    width: 484px;
+    height: 286px;
+    display: block;
+}
+
+.links{
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: "LeagueGothic";
+    font-size: 30pt;
+    text-decoration: none;
+}
+
+.links:hover{
+    color: #FFFFFF;
+}
+
+@media only screen and (max-width: 575px) {
+    .container{
+        min-width: 370px !important;
+
+    }
+
+    .fluid-container{
+        min-width: 370px !important;
+    }
+
+    .brand-name{
+        font-size: 18px;
+        letter-spacing: .5px;
+        position: absolute;
+        top: -34px;
+        left: 38px;
+    }
+
+    .navbar-toggler{
+        padding: 0;
+        border: none;
+        height: 30px;
+        position: relative;
+        top: 4px;
+        left: -17px;
+    }
+
+    .topNav-container{
+        width: 100%;
+    }
+
+    .search-form{
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        height: 31px;
+    }
+
+    .topNav-full-container{
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .mainNav li{
+        border-left: none;
+    }
+
+    .mainNav li:last-child{
+        border-right: none;
+    }
+
+    #mainNav-link1:hover #mainNav-dropdown1{
+        display: none !important;
+    }
+
+    #mainNav-link2:hover #mainNav-dropdown2{
+        display: none !important;
+    }
+
+    #mainNav-link3:hover #mainNav-dropdown3{
+        display: none !important;
+    }
+
+    #mainNav-link4:hover #mainNav-dropdown4{
+        display: none !important;
+    }
+
+    #mainNav-link5:hover #mainNav-dropdown5{
+        display: none !important;
+    }
+
+    #mainNav-link6:hover #mainNav-dropdown6{
+        display: none !important;
+    }
+
+    #mainNav-link7:hover #mainNav-dropdown7{
+        display: none !important;
+    }
+
+    #mainNav-link8:hover #mainNav-dropdown8{
+        display: none !important;
+    }
+
+    #mainNav-link8:hover #mainNav-dropdown8{
+        display: none !important;
+    }
+
+    #mainNav-link9:hover #mainNav-dropdown9{
+        display: none !important;
+    }
+
+    #mainNav-link10:hover #mainNav-dropdown10{
+        display: none !important;
+    }
+
+    #mainNav-link11:hover #mainNav-dropdown11{
+        display: none !important;
+    }
+
+    #mainNav-link12:hover #mainNav-dropdown12{
+        display: none !important;
+    }
+
+    #checkout-link:hover #checkout-dropdown{
+        display: none;
+    }
+
+    .topNav-full-container{
+        background-image: none;
+    }
+
+    .topNav-container{
+        background-image: none;
+    }
+
+    .image-slider img{
+        height: 250px;
+    }
+
+    .slide-section img{
+        width: 100%;
+    }
+
+    .slide-section{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100% !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .slide-section div[class='col-5 ml-5']{
+        margin-left: 0 !important;
+        display: block;
+        max-width: unset;
+        flex: unset;
+    }
+
+    .slide-section div[class = 'col-5']{
+        max-width: unset;
+        flex: unset;
+    }
+
+    #carouselExampleControls3{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #shop-products div[class='col-4 mb-4']{
+        flex: unset;
+        max-width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    #select1{
+         display: block;
+        margin-bottom: 10px;
+     }
+
+    #select2{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #product-info{
+        margin-left: 0 !important;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    #product-image img{
+        width: 180px;
+        height: 200px;
+    }
+
+    .recommends-container div[class='col-2 ml-auto mr-auto']{
+        flex: 0 0 40%;
+        max-width: 40%;
+
+    }
+
+    .recommends-container img{
+        width: 100% !important;
+    }
+
+    #checkout-link{
+        display: block !important;
+        margin-top: unset;
+    }
+
+    table tbody img{
+        width: 70px !important;
+        height: 80px !important;
+    }
+
+    table tbody{
+        font-size: 8px !important;
+    }
+
+    table tbody input{
+        font-size: 8px !important;
+    }
+
+    .cart-table thead tr th:nth-child(3){
+        padding-right: 25px;
+    }
+
+    .cart-container div[class='col-6 mt-4']{
+        max-width: 65% !important;
+    }
+
+    #topNav{
+        width: unset;
+    }
+
+    #clothing-link{
+        width: 370px;
+        margin-bottom: 15px;
+    }
+
+    #footwear-link{
+        width: 370px;
+        margin-bottom: 15px;
+    }
+
+    #accessory-link{
+        width: 370px;
+        margin-bottom: 15px;
+    }
+
+    #all-link{
+        width: 370px;
+        margin-bottom: 15px;
+    }
+
+    div[class="col-5 ml-5 text-center"]{
+        margin-left: 0 !important;
+        max-width: unset;
+    }
+
+    .search-results{
+        display: none !important;
+    }
 }

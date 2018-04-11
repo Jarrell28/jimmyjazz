@@ -16,9 +16,10 @@
        <div class="col-6 mt-4">
            <a class="btn cart-btn mb-3" href="{{route('main')}}">< Continue Shopping</a>
 
-           <p>{{session()->has('success_message') ? session('success_message') : ''}}
-           </p>
+           <p>{{session()->has('success_message') ? session('success_message') : ''}}</p>
 
+
+            @if(Cart::total() != '0')
            <table class="cart-table mt-3">
                <thead>
                  <tr>
@@ -29,6 +30,7 @@
                  </tr>
                </thead>
                <tbody>
+
                @foreach(Cart::content() as $item)
                  <tr class="text-uppercase">
                    <td class="pb-2"><img  style="width: 93px; height: 118px;" src="{{asset('img/products')}}/{{$item->model->image}}" alt=""></td>
@@ -53,14 +55,17 @@
              </table>
            <div class="text-uppercase text-center cart-subtotal mt-3 mb-4">
                <p>SubTotal: <span class="float-right pr-2">${{Cart::subtotal()}}</span></p>
-               <form action="" class="mt-5 pb-2">
+               <form action="{{route('shop.paypal')}}" class="mt-5 pb-2">
                    <div class="text-right">
-                   <input type="hidden">
                    
                    <button type="submit" class="btn cart-btn">Checkout Now ></button>
                    </div>
                </form>
            </div>
+                @else
+           <p>Your cart is empty</p>
+
+                @endif
        </div>
    </div>
 </div>

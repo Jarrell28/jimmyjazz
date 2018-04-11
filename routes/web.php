@@ -38,3 +38,6 @@ Route::get('/search', 'ShopController@search')->name('shop.search');
 
 Route::get('/searching', 'ShopController@searching')->name('shop.searching');
 Route::get('/searching1', 'ShopController@searching1')->name('shop.searching1');
+
+Route::get('/paypal', 'ShopController@paypal')->name('shop.paypal');
+Route::get('/success', 'ShopController@success')->name('shop.success');

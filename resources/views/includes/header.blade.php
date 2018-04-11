@@ -7,18 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JimmyClone</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800" rel="stylesheet">
 </head>
 <body>
 <div class="fluid-container topNav-full-container">
 <div class="container topNav-container">
-    <nav class="navbar navbar-expand-lg navbar-light pt-0">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-sm navbar-light pt-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="topNav">
+        <div class="" id="topNav">
+            <div class="collapse navbar-collapse">
             <ul class="navbar-nav social-links">
                 <li class="nav-item">
                     <a class="nav-link pt-0 pr-0" href="#"><img src="{{asset('img/icons/instagram.png')}}" alt=""></a>
@@ -47,6 +48,7 @@
                     <a class="nav-link" href="#">Register</a>
                 </li>
             </ul>
+            </div>
             <div id="checkout-link" class="dropdown show">
                 <a  class="nav-link cart-link pb-0" href="{{route('shop.cart')}}">
                     <img id="cart-img" class="mr-1 mb-3" src="{{URL::to('/')}}img/icons/cart.png" alt=""><span>Checkout</span><span class="ml-1">({{Cart::count()}})</span>
@@ -97,7 +99,7 @@
     </nav>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light pt-0 pb-0 position-relative">
+    <nav class="navbar navbar-expand-sm navbar-light pt-0 pb-0 position-relative">
         <a class="navbar-brand mr-auto brand-name" href="{{URL::to('/')}}">Jimmy Clone</a>
             <form class="form-inline search-form" method="get" action="{{route('shop.search')}}">
                 <div class="input-group w-100 search-bar">
@@ -136,10 +138,11 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light pt-0 pb-0 text-uppercase mainNav">
-            <ul class="navbar-nav mr-auto">
+    <nav  class="navbar navbar-expand-sm navbar-light pt-0 pb-0 text-uppercase mainNav ">
+        <main id='mainNav1' class="collapse navbar-collapse">
+            <ul   class="navbar-nav mr-auto">
                 <li class="nav-item dropdown" id="mainNav-link1">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop')}}/Mens">
                         Mens
                     </a>
 
@@ -181,7 +184,7 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link2">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop')}}/Womens">
                         Womens
                     </a>
                     <div id="mainNav-dropdown2" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
@@ -219,7 +222,7 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link3">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?kids=BoysNGirls">
                         Kids
                     </a>
                     <div id="mainNav-dropdown3" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
@@ -265,73 +268,40 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link4">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?keyword=nike">
                         Nike
                     </a>
                     <div id="mainNav-dropdown4" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right pr-4">
-                                    <a class="dropdown-item" href="#">Nike Mens</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
-                                    <a class="dropdown-item" href="#">Accessories</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Mens">Nike Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Mens&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Mens&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Mens&category=accessories">Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Nike Womens</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">Clothing</a>
-                                        <a class="dropdown-item" href="#">New Arrivals</a>
-                                        <a class="dropdown-item" href="#">Sale</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.search')}}?keyword=Nike&gender=Womens">Nike Womens</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Womens&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Womens&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=Womens&category=footwear">Accessories</a>
                                     </div>
 
-                                    <div>
-                                        <a class="dropdown-item mt-2" href="#">Nike Sportswear <br>Mens</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">Clothing</a>
-                                        <a class="dropdown-item" href="#">Accessories</a>
-                                        <a class="dropdown-item" href="#">New Arrivals</a>
-                                        <a class="dropdown-item" href="#">Sale</a>
-                                    </div>
-
-                                    <div>
-                                        <a class="dropdown-item mt-2" href="#">Nike Styles</a>
-                                        <a class="dropdown-item" href="#">Air Force 1</a>
-                                        <a class="dropdown-item" href="#">Air Max</a>
-                                        <a class="dropdown-item" href="#">Foamposite</a>
-                                        <a class="dropdown-item" href="#">Kevin Durant</a>
-                                        <a class="dropdown-item" href="#">Kobe Bryant</a>
-                                        <a class="dropdown-item" href="#">Kyrie Irving</a>
-                                        <a class="dropdown-item" href="#">Lebron James</a>
-                                        <a class="dropdown-item" href="#">Roshe Run</a>
-                                    </div>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right pr-4">
-                                    <a class="dropdown-item" href="#">Nike Sportswear <br>WoMens</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
-
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Nike Boys</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">Clothing</a>
-                                        <a class="dropdown-item" href="#">Accessories</a>
-                                        <a class="dropdown-item" href="#">New Arrivals</a>
-                                        <a class="dropdown-item" href="#">Sale</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=boys">Nike Boys</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=boys&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=boys&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=boys&category=accessories">Accessories</a>
                                     </div>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Nike Girls</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">Clothing</a>
-                                        <a class="dropdown-item" href="#">Accessories</a>
-                                        <a class="dropdown-item" href="#">New Arrivals</a>
-                                        <a class="dropdown-item" href="#">Sale</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.search')}}?keyword=Nike&gender=girls">Nike Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=girls&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=girls&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Nike&gender=girls&category=accessories">Accessories</a>
                                     </div>
                                 </div>
 
@@ -343,34 +313,40 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link5">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?keyword=jordan">
                         Jordan
                     </a>
                     <div id="mainNav-dropdown5" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Jordan Mens</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
-                                    <a class="dropdown-item" href="#">Accessories</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Mens">Jordan Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Mens&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Mens&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Mens&category=accessories">Accessories</a>
+
+                                    <div class="mt-2">
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Womens">Jordan Womens</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Womens&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Womens&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Womens&category=accessories">Accessories</a>
+                                    </div>
+
                                 </div>
 
+
+
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Jordan Boys</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
-                                    <a class="dropdown-item" href="#">Accessories</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Boys">Jordan Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Boys&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Boys&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Boys&category=accessories">Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Jordan Girls</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">New Arrivals</a>
-                                        <a class="dropdown-item" href="#">Sale</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.search')}}?keyword=Jordan&gender=Girls">Jordan Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Girls&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Girls&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=Jordan&gender=Girls&category=accessories">Accessories</a>
                                     </div>
                                 </div>
 
@@ -382,43 +358,37 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link6">
-                    <a class="nav-link text-lowercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-lowercase" href="{{route('shop.search')}}?keyword=adidas">
                         adidas
                     </a>
                     <div id="mainNav-dropdown6" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Mens</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">Casual</a>
-                                    <a class="dropdown-item" href="#">BasketBall</a>
-                                    <a class="dropdown-item" href="#">Running</a>
-                                    <a class="dropdown-item" href="#">Sandals</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Mens">Adidas Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Mens&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Mens&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Mens&category=accessories">Accessories</a>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop WoMens</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">Basketball</a>
-                                    <a class="dropdown-item" href="#">Running</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Womens">Adidas Womens</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Womens&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Womens&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Womens&category=accessories">Accessories</a>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Boys</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">Basketball</a>
-                                    <a class="dropdown-item" href="#">Running</a>
-                                    <a class="dropdown-item" href="#">Training</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Boys">Adidas Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Boys&category=footwear">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Boys&category=clothing">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Boys&category=accessories">Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Shop Girls</a>
-                                        <a class="dropdown-item" href="#">Sneakers</a>
-                                        <a class="dropdown-item" href="#">Basketball</a>
-                                        <a class="dropdown-item" href="#">Running</a>
-                                        <a class="dropdown-item" href="#">Training</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Girls">Adidas Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Girls&category=footwear">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Girls&category=clothing">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.search')}}?keyword=adidas&gender=Girls&category=accessories">Accessories</a>
                                     </div>
                                 </div>
 
@@ -430,108 +400,69 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link7">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?keyword=footwear" >
                         Footwear
                     </a>
                     <div id="mainNav-dropdown7" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Mens</a>
-                                    <a class="dropdown-item" href="#">Boots</a>
-                                    <a class="dropdown-item" href="#">Casual</a>
-                                    <a class="dropdown-item" href="#">Sandals</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">  BasketBall</a>
-                                    <a class="dropdown-item" href="#">  Running</a>
-                                    <a class="dropdown-item" href="#">  Training</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
-                                    <a class="dropdown-item" href="#">Clearance</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}">Shop Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Footwear', 'Boots'])}}">Boots</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Footwear', 'Sandals'])}}">Sandals</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Footwear', 'Sneakers'])}}">Sneakers</a>
                                 </div>
 
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Top Mens Brands</a>
-                                    <a class="dropdown-item" href="#">Nike</a>
-                                    <a class="dropdown-item" href="#">Jordan</a>
-                                    <a class="dropdown-item" href="#">adidas</a>
-                                    <a class="dropdown-item" href="#">Saucony</a>
-                                    <a class="dropdown-item" href="#">New Balance</a>
-                                    <a class="dropdown-item" href="#">Timberland</a>
-                                    <a class="dropdown-item" href="#">Puma</a>
-                                    <a class="dropdown-item" href="#">Reebok</a>
-                                    <a class="dropdown-item" href="#">Under Armour</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}">Top Mens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}?brand=4">Levi</a>
                                 </div>
 
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Womens</a>
-                                    <a class="dropdown-item" href="#">Boots</a>
-                                    <a class="dropdown-item" href="#">Casual</a>
-                                    <a class="dropdown-item" href="#">Sandals</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">  BasketBall</a>
-                                    <a class="dropdown-item" href="#">  Running</a>
-                                    <a class="dropdown-item" href="#">  Training</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
-                                    <a class="dropdown-item" href="#">Clearance</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}">Shop Womens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Footwear', 'Boots'])}}">Boots</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Footwear', 'Sandals'])}}">Sandals</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Footwear', 'Sneakers'])}}">Sneakers</a>
                                 </div>
 
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Top Womens Brands</a>
-                                    <a class="dropdown-item" href="#">Nike</a>
-                                    <a class="dropdown-item" href="#">Reebok</a>
-                                    <a class="dropdown-item" href="#">adidas</a>
-                                    <a class="dropdown-item" href="#">New Balance</a>
-                                    <a class="dropdown-item" href="#">Puma</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}">Top Womens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}?brand=4">Levi</a>
                                 </div>
 
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Boys</a>
-                                    <a class="dropdown-item" href="#">Boots</a>
-                                    <a class="dropdown-item" href="#">Casual</a>
-                                    <a class="dropdown-item" href="#">Sandals</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">  BasketBall</a>
-                                    <a class="dropdown-item" href="#">  Running</a>
-                                    <a class="dropdown-item" href="#">  Training</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
-                                    <a class="dropdown-item" href="#">Clearance</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}">Shop Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Footwear', 'Boots'])}}">Boots</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Footwear', 'Sandals'])}}">Sandals</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Footwear', 'Sneakers'])}}">Sneakers</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Top  Brands</a>
-                                        <a class="dropdown-item" href="#">Nike</a>
-                                        <a class="dropdown-item" href="#">Jordan</a>
-                                        <a class="dropdown-item" href="#">Puma</a>
-                                        <a class="dropdown-item" href="#">New Balance</a>
-                                        <a class="dropdown-item" href="#">adidas</a>
-                                        <a class="dropdown-item" href="#">Timberland</a>
-                                        <a class="dropdown-item" href="#">Under Armour</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}">Top Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}?brand=4">Levi</a>
                                     </div>
                                 </div>
 
                                 <div class="col mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Girls</a>
-                                    <a class="dropdown-item" href="#">Boots</a>
-                                    <a class="dropdown-item" href="#">Casual</a>
-                                    <a class="dropdown-item" href="#">Sandals</a>
-                                    <a class="dropdown-item" href="#">Sneakers</a>
-                                    <a class="dropdown-item" href="#">  BasketBall</a>
-                                    <a class="dropdown-item" href="#">  Running</a>
-                                    <a class="dropdown-item" href="#">  Training</a>
-                                    <a class="dropdown-item" href="#">New Arrivals</a>
-                                    <a class="dropdown-item" href="#">Sale</a>
-                                    <a class="dropdown-item" href="#">Clearance</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}">Shop Girls</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Footwear', 'Boots'])}}">Boots</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Footwear', 'Sandals'])}}">Sandals</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Footwear', 'Sneakers'])}}">Sneakers</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Top  Brands</a>
-                                        <a class="dropdown-item" href="#">Nike</a>
-                                        <a class="dropdown-item" href="#">Jordan</a>
-                                        <a class="dropdown-item" href="#">adidas</a>
-                                        <a class="dropdown-item" href="#">Puma</a>
-                                        <a class="dropdown-item" href="#">New Balance</a>
-                                        <a class="dropdown-item" href="#">Converse</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}">Top  Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}?brand=4">Levi</a>
                                     </div>
                                 </div>
 
@@ -540,85 +471,69 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link8">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?keyword=clothing">
                         Clothing
                     </a>
                     <div id="mainNav-dropdown8" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Shop Mens</a>
-                                    <a class="dropdown-item" href="#">Sweatshirts</a>
-                                    <a class="dropdown-item" href="#">Sweatpants/Joggers</a>
-                                    <a class="dropdown-item" href="#">Jeans</a>
-                                    <a class="dropdown-item" href="#">Short Sleeve Tees</a>
-                                    <a class="dropdown-item" href="#"> Shorts</a>
-                                    <a class="dropdown-item" href="#">Light Jackets</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}">Shop Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Clothing', 'Tops'])}}">Tops</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Clothing', 'Sweatshirts'])}}">Sweatshirts</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Clothing', 'Bottoms'])}}">Bottoms</a>
                                 </div>
 
-                                <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Top Mens Brands</a>
-                                    <a class="dropdown-item" href="#">Nike</a>
-                                    <a class="dropdown-item" href="#">Jordan</a>
-                                    <a class="dropdown-item" href="#">adidas</a>
-                                    <a class="dropdown-item" href="#">Levis</a>
-                                    <a class="dropdown-item" href="#">Diamond Supply Co.</a>
-                                    <a class="dropdown-item" href="#">Embellish</a>
-                                    <a class="dropdown-item" href="#">G-Star</a>
-                                    <a class="dropdown-item" href="#">Dope</a>
-                                    <a class="dropdown-item" href="#">Heritage</a>
-                                    <a class="dropdown-item" href="#">A.K.O.O</a>
-                                    <a class="dropdown-item" href="#">Hustle Gang</a>
-                                    <a class="dropdown-item" href="#">Hudson Outerwear</a>
-                                    <a class="dropdown-item" href="#">American Stitch</a>
-                                    <a class="dropdown-item" href="#">Starter</a>
-                                    <a class="dropdown-item" href="#">Decibel</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}">Top Mens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}?brand=4">Levi</a>
                                 </div>
 
-                                <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Shop Womens</a>
-                                    <a class="dropdown-item" href="#">Jeans</a>
-                                    <a class="dropdown-item" href="#">Athletic Pants</a>
-                                    <a class="dropdown-item" href="#">Casual Pants</a>
-                                    <a class="dropdown-item" href="#">Short Sleeve TOps</a>
-                                    <a class="dropdown-item" href="#">Denim Shorts</a>
-                                    <a class="dropdown-item" href="#">Casual Shorts</a>
-                                    <a class="dropdown-item" href="#">Tank tops</a>
-                                    <a class="dropdown-item" href="#">Dresses</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}">Shop Womens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Clothing', 'Tops'])}}">Tops</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Clothing', 'Sweatshirts'])}}">Sweatshirts</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Clothing', 'Bottoms'])}}">Bottoms</a>
                                 </div>
 
-                                <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Top Womens Brands</a>
-                                    <a class="dropdown-item" href="#">Nike</a>
-                                    <a class="dropdown-item" href="#">Nike Sportswear</a>
-                                    <a class="dropdown-item" href="#">adidas</a>
-                                    <a class="dropdown-item" href="#">Levis</a>
-                                    <a class="dropdown-item" href="#">Puma</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}">Top Womens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}?brand=4">Levi</a>
                                 </div>
 
-                                <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Shop Boys</a>
-                                    <a class="dropdown-item" href="#">Tops</a>
-                                    <a class="dropdown-item" href="#">Sweatshirts</a>
-                                    <a class="dropdown-item" href="#">Bottoms</a>
-                                    <a class="dropdown-item" href="#">Outerwear</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}">Shop Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Clothing', 'Tops'])}}">Tops</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Clothing', 'Sweatshirts'])}}">Sweatshirts</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Clothing', 'Bottoms'])}}">Bottoms</a>
+
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Top Brands</a>
-                                        <a class="dropdown-item" href="#">Nike</a>
-                                        <a class="dropdown-item" href="#">Jordan</a>
-                                        <a class="dropdown-item" href="#">Levi</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}">Top Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}?brand=4">Levi</a>
                                     </div>
                                 </div>
 
-                                <div class="col mainNav-links-border-right pr-0">
-                                    <a class="dropdown-item" href="#">Shop Girls</a>
-                                    <a class="dropdown-item" href="#">Tops</a>
-                                    <a class="dropdown-item" href="#">Bottoms</a>
-                                    <a class="dropdown-item" href="#">Outerwear</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}">Shop Girls</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Clothing', 'Tops'])}}">Tops</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Clothing', 'Sweatshirts'])}}">Sweatshirts</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Clothing', 'Bottoms'])}}">Bottoms</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Top  Brands</a>
-                                        <a class="dropdown-item" href="#">Nike</a>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}">Top  Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}?brand=4">Levi</a>
                                     </div>
                                 </div>
 
@@ -627,89 +542,105 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link9">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}?keyword=accessories">
                         Accessories
                     </a>
                     <div id="mainNav-dropdown9" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
-                                <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Mens</a>
-                                    <a class="dropdown-item" href="#">Backpacks and Bags</a>
-                                    <a class="dropdown-item" href="#">Beanies</a>
-                                    <a class="dropdown-item" href="#">Caps Fitted</a>
-                                    <a class="dropdown-item" href="#">Caps Snapback</a>
-                                    <a class="dropdown-item" href="#">Hats</a>
-                                    <a class="dropdown-item" href="#">Miscellaneous</a>
-                                    <a class="dropdown-item" href="#">Seasonal</a>
-                                    <a class="dropdown-item" href="#">Socks</a>
-                                    <a class="dropdown-item" href="#">Underwear</a>
-                                    <a class="dropdown-item" href="#">Watches</a>
+                                <div class="col mainNav-links-border-right pr-0">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}">Shop Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Accessories', 'Backpack And Bags'])}}">Backpack And Bags</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Mens', 'Accessories', 'Hats'])}}">Hats</a>
+
+                                    <div>
+                                    <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}">Top Mens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}?brand=4">Levi</a>
+                                    </div>
                                 </div>
 
-                                <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Top Mens Brands</a>
-                                    <a class="dropdown-item" href="#">New Era</a>
-                                    <a class="dropdown-item" href="#">Mitchell And Ness</a>
-                                    <a class="dropdown-item" href="#">Nike</a>
-                                    <a class="dropdown-item" href="#">Jordan</a>
-                                    <a class="dropdown-item" href="#">Field Grade</a>
-                                    <a class="dropdown-item" href="#">Crep Protect</a>
-                                    <a class="dropdown-item" href="#">Stance</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}">Shop Womens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Accessories', 'Backpack And Bags'])}}">Backpack And Bags</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Womens', 'Accessories', 'Hats'])}}">Hats</a>
+
+                                    <div>
+                                    <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}">Top Womens Brands</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}?brand=1">Jordan</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}?brand=2">Nike</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}?brand=3">adidas</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}?brand=4">Levi</a>
+                                    </div>
                                 </div>
 
-                                <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Womens</a>
-                                    <a class="dropdown-item" href="#">Bags And Backpacks</a>
-                                    <a class="dropdown-item" href="#">Belts</a>
-                                    <a class="dropdown-item" href="#">Jewelry</a>
-                                    <a class="dropdown-item" href="#">Miscellaneous</a>
-                                    <a class="dropdown-item" href="#">Seasonal</a>
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}">Shop Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Accessories', 'Backpack And Bags'])}}">Backpack And Bags</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Boys', 'Accessories', 'Hats'])}}">Hats</a>
+
+                                    <div>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}">Top Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}?brand=4">Levi</a>
+                                    </div>
                                 </div>
 
+                                <div class="col mainNav-links-border-right">
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}">Shop Girls</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Accessories', 'Backpack And Bags'])}}">Backpack And Bags</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategorySubcategory', ['Girls', 'Accessories', 'Hats'])}}">Hats</a>
 
-                                <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Shop Boys</a>
-                                    <a class="dropdown-item" href="#">Hats</a>
+                                    <div>
+                                        <a class="dropdown-item mt-2" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}">Top  Brands</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}?brand=1">Jordan</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}?brand=2">Nike</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}?brand=3">adidas</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}?brand=4">Levi</a>
+                                    </div>
                                 </div>
-
 
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link10">
-                    <a class="nav-link new-arrivals" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link new-arrivals" href="{{route('shop.search')}}">
                         New Arrivals
                     </a>
                     <div id="mainNav-dropdown10" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">New Mens</a>
-                                    <a class="dropdown-item" href="#">New Footwear</a>
-                                    <a class="dropdown-item" href="#">New Clothing</a>
-                                    <a class="dropdown-item" href="#">New Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Mens'])}}">New Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}">New Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}">New Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}">New Accessories</a>
 
 
                                 <div>
-                                    <a class="dropdown-item mt-2" href="#">New Womens</a>
-                                    <a class="dropdown-item" href="#">New Footwear</a>
-                                    <a class="dropdown-item" href="#">New Clothing</a>
-                                    <a class="dropdown-item" href="#">New Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Womens'])}}">New Womens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}">New Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}">New Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}">New Accessories</a>
                                 </div>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">New Boys</a>
-                                    <a class="dropdown-item" href="#">New Footwear</a>
-                                    <a class="dropdown-item" href="#">New Clothing</a>
-                                    <a class="dropdown-item" href="#">New Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Boys'])}}">New Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}">New Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}">New Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}">New Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">New Girls</a>
-                                        <a class="dropdown-item" href="#">New Footwear</a>
-                                        <a class="dropdown-item" href="#">New Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.gender', ['Girls'])}}">New Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}">New Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}">New Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}">New Accessories</a>
                                     </div>
                                 </div>
 
@@ -721,37 +652,38 @@
                     </div>
                 </li>
                 <li class="nav-item" id="mainNav-link11">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}">
                         Sale
                     </a>
                     <div id="mainNav-dropdown11" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Sale Mens</a>
-                                    <a class="dropdown-item" href="#">Sale Footwear</a>
-                                    <a class="dropdown-item" href="#">Sale Clothing</a>
-                                    <a class="dropdown-item" href="#">Sale Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Mens'])}}">Sale Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}">Sale Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}">Sale Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}">Sale Accessories</a>
 
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Sale Womens</a>
-                                        <a class="dropdown-item" href="#">Sale Footwear</a>
-                                        <a class="dropdown-item" href="#">Sale Clothing</a>
-                                        <a class="dropdown-item" href="#">Sale Accessories</a>
+                                        <a class="dropdown-item" href="{{route('shop.gender', ['Womens'])}}">Sale Womens</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}">Sale Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}">Sale Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}">Sale Accessories</a>
                                     </div>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Sale Boys</a>
-                                    <a class="dropdown-item" href="#">Sale Footwear</a>
-                                    <a class="dropdown-item" href="#">Sale Clothing</a>
-                                    <a class="dropdown-item" href="#">Sale Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Boys'])}}">Sale Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}">Sale Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}">Sale Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}">Sale Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Sale Girls</a>
-                                        <a class="dropdown-item" href="#">Sale Footwear</a>
-                                        <a class="dropdown-item" href="#">Sale Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.gender', ['Girls'])}}">Sale Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}">Sale Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}">Sale Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}">Sale Accessories</a>
                                     </div>
                                 </div>
 
@@ -762,34 +694,38 @@
                         </div>
                     </div>
                 <li class="nav-item" id="mainNav-link12">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('shop.search')}}">
                         Clearance
                     </a>
                     <div id="mainNav-dropdown12" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Mens Clearance</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
-                                    <a class="dropdown-item" href="#">Accessories</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Mens'])}}">Clearance Mens</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Footwear'])}}">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Clothing'])}}">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Mens', 'Accessories'])}}">Accessories</a>
+
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Womens Clearance</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
-                                        <a class="dropdown-item" href="#">Clothing</a>
-                                        <a class="dropdown-item" href="#">Accessories</a>
+                                        <a class="dropdown-item" href="{{route('shop.gender', ['Womens'])}}">Clearance Womens</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Footwear'])}}">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Clothing'])}}">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Womens', 'Accessories'])}}">Accessories</a>
                                     </div>
                                 </div>
 
                                 <div class="col-2 mainNav-links-border-right">
-                                    <a class="dropdown-item" href="#">Boys Clearance</a>
-                                    <a class="dropdown-item" href="#">Footwear</a>
-                                    <a class="dropdown-item" href="#">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.gender', ['Boys'])}}">Clearance Boys</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Footwear'])}}">Footwear</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Clothing'])}}">Clothing</a>
+                                    <a class="dropdown-item" href="{{route('shop.genderCategory', ['Boys', 'Accessories'])}}">Accessories</a>
 
                                     <div>
-                                        <a class="dropdown-item mt-2" href="#">Girls Clearance</a>
-                                        <a class="dropdown-item" href="#">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.gender', ['Girls'])}}">Clearance Girls</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Footwear'])}}">Footwear</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Clothing'])}}">Clothing</a>
+                                        <a class="dropdown-item" href="{{route('shop.genderCategory', ['Girls', 'Accessories'])}}">Accessories</a>
                                     </div>
                                 </div>
 
@@ -801,6 +737,7 @@
                     </div>
                 </li>
             </ul>
+        </main>
     </nav>
 </div>
 </div>
@@ -810,11 +747,11 @@
 
 <div class="fluid-container footer-container">
     <div class="container footer">
-        <nav class="navbar navbar-expand-lg navbar-light text-uppercase">
+        <nav class="navbar navbar-expand-sm navbar-light text-uppercase">
             <div class="collapse navbar-collapse" id="footer-nav-container">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{route('main')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>

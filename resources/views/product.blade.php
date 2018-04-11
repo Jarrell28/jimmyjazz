@@ -64,8 +64,10 @@
                     <input type="hidden" name="size" value="{{$product->size->size}}">
                     <input type="hidden" name="qty" value="1" id="quantity-value">
 
-                    <button style="border: none; cursor:pointer;" type="submit" id="cart-button-submit"><img id="add-cart" src="http://www.jimmyjazz.com/images/add-to-cart.gif" alt="">
-                    </button>
+                    {{--<button style="border: none; cursor:pointer;" type="submit" id="cart-button-submit">--}}
+                        {{--<img id="add-cart" src="http://www.jimmyjazz.com/images/add-to-cart.gif" alt="">--}}
+                    {{--</button>--}}
+                    <button type="submit">Add</button>
 
                 </form>
 

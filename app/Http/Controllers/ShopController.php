@@ -11,6 +11,8 @@ use App\SubCategory;
 use function foo\func;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Srmklive\PayPal\Facades\PayPal;
+use Srmklive\PayPal\Services\ExpressCheckout;
 
 class ShopController extends Controller
 {
@@ -242,6 +244,7 @@ class ShopController extends Controller
         $size = $request->input('size');
         $brandFilter = $request->input('brand');
         $gender = $request->input('gender');
+        $gender2 = $request->input('kids');
         $search = $request->input('keyword', '');
         $category = $request->input('category');
         $subcategory = $request->input('subcategory');
@@ -255,9 +258,12 @@ class ShopController extends Controller
         $genders = Gender::all();
 
         $product = Product::where(function($query) use($search){
-            return $query->whereHas('brand', function($query) use($search){
-                return $query->where('brand', 'like', '%' . $search . '%');
-        })->orWhere('title', 'like', '%'. $search . '%')->orWhere('color', 'like', '%' . $search .'%');})->when($color, function($query) use ($color){
+            return $query->whereHas('category', function($query) use($search){
+                return $query->where('category', 'like', '%' . $search . '%');
+        })->orWhereHas('brand', function($query) use ($search){
+            return $query->where('brand' , 'like', '%' . $search . '%');
+            })->orWhere('title', 'like', '%'. $search . '%')->orWhere('color', 'like', '%' . $search .'%');
+        })->when($color, function($query) use ($color){
             return $query->where('color', 'like',  '%' .  $color . '%');
         })->when($minprice, function($query) use ($minprice){
             return $query->where('price', '>=', $minprice);
@@ -273,6 +279,10 @@ class ShopController extends Controller
             return $query->whereHas('gender', function($query) use($gender){
                 return $query->where('gender', $gender);
             });
+        })->when($gender2, function($query) use($gender2){
+            return $query->whereHas('gender', function($query) use($gender2){
+                return $query->where('gender', 'Boys')->orWhere('gender', 'girls');
+            });
         })->when($category, function($query) use($category){
             return $query->whereHas('category', function($query) use($category){
                 return $query->where('category', $category);
@@ -283,7 +293,7 @@ class ShopController extends Controller
             });
         })->when($sort, function($query) use($sort){
             return $query->orderBy('price', $sort);
-        })->paginate($perPage);
+        })->inRandomOrder()->paginate($perPage);
 
 
         return view('search', compact('brand', 'product', 'categories', 'subcategories', 'genders', 'sizes', 'search', 'color'));
@@ -339,8 +349,8 @@ class ShopController extends Controller
 
                     $output1.='<tr>'.
 
-                        "<td><a  href='" . route('product', [$product->gender->gender, $product->title]) .  "'><img src='" . asset('img/products') ."/" . $product->image . "' style='width: 50px; height: 50px;'" . ">" . '</a></td>'.
-                        '<td style="vertical-align: middle"><a  href="'. route('product', [$product->gender->gender, $product->title]) . '">' . $product->title . '</a></td>' . '</tr>';
+                        "<td><a  href='" . route('product', [$product->gender->gender, $product->title, $product->id]) .  "'><img src='" . asset('img/products') ."/" . $product->image . "' style='width: 50px; height: 50px;'" . ">" . '</a></td>'.
+                        '<td style="vertical-align: middle"><a  href="'. route('product', [$product->gender->gender, $product->title, $product->id]) . '">' . $product->title . '</a></td>' . '</tr>';
 
 
                 }
@@ -350,7 +360,67 @@ class ShopController extends Controller
             }
         }
 
-}
+    }
+
+    public function paypal(){
+
+        $provider = PayPal::setProvider('express_checkout');
+        $data = [];
+
+        foreach(Cart::content() as $item) {
+            $data['items'][] =
+                [
+                    'name' => $item->name,
+                    'price' => $item->price,
+                    'qty' => $item->qty
+                ];
+        }
+        $data['invoice_id'] = rand(2,100000);
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = url('/success');
+        $data['cancel_url'] = url('/cart');
+
+        $data['total'] = Cart::subtotal();
+
+
+        $response = $provider->setExpressCheckout($data);
+
+
+//
+
+        return redirect($response['paypal_link']);
+
+    }
+
+    public function success(Request $request){
+        $provider = PayPal::setProvider('express_checkout');
+
+        $token = $request->input('token');
+        $PayerID = $request->input('PayerID');
+
+        $data = [];
+
+        foreach(Cart::content() as $item) {
+            $data['items'][] =
+                [
+                    'name' => $item->name,
+                    'price' => $item->price,
+                    'qty' => $item->qty
+                ];
+        }
+        $data['invoice_id'] = rand(3,100000);
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = url('/cart');
+        $data['cancel_url'] = url('/cart');
+
+        $data['total'] = Cart::subtotal();
+
+        $provider->doExpressCheckoutPayment($data, $token, $PayerID);
+
+        Cart::destroy();
+
+        return redirect()->route('shop.cart')->with('success_message', 'Thank you for your purchase!');
+    }
 
 }
 

@@ -34,7 +34,7 @@
                 <li class="mt-2">By Brand:
                 <ul>
                     @foreach($brand as $brands)
-                <li><a href="{{URL::current()}}?keyword={{$search}}&brand={{$brands->brand}}">{{$brands->brand}}</a></li>
+                <li><a href="{{URL::current()}}?keyword={{$search}}&brand={{$brands->id}}">{{$brands->brand}}</a></li>
                         @endforeach
                 </ul>
                 </li>
@@ -85,8 +85,12 @@
         </div>
         <div class="col mt-2" id="shop-items">
             <p>Search Results / {{$search}}</p>
+            @if($product->count() > 0)
             <p><span style="color: #000; font-size: 20px;" class="font-italic">{{$product->firstItem()}} - {{$product->lastItem()}} OF {{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
-            <hr>
+            @else
+                <p><span style="color: #000; font-size: 20px;" class="font-italic">{{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
+            @endif
+                <hr>
             <span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&sort=desc">Price High - Low</option>
@@ -97,8 +101,9 @@
                 <option value="{{URL::current()}}?keyword={{$search}}&perPage=10">10</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&perPage=20">20</option>
             </select>
-            <div class="d-inline text-capitalize">{{$product->appends(['keyword'=>$search])->links()}}</div>
+            <div class="d-inline text-capitalize">{{$product->appends(Request::query())->links()}}</div>
             <div class="row mt-2" id="shop-products">
+                @if($product->count() > 0)
                 @foreach($product as $products)
                 <div class="col-4 mb-4">
                     <a href="{{route('product', [$products->gender->gender, $products->title, $products->id])}}"><img src="{{URL::to('/') }}/img/products/{{$products->image}}" alt="">
@@ -109,7 +114,12 @@
                     <p>${{$products->price}}</p>
                 </div>
 
+
                 @endforeach
+                @else
+
+                    <div class="col-4 mt-3">We could not find that item</div>
+                    @endif
             </div>
         </div>
     </div>

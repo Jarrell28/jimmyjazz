@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container" id="shop-container">
         <div class="row" >
         <div class="col-2 mt-3">
             <ul id="shop">
@@ -84,17 +84,19 @@
             <p>Shop  {{$currentGender ? '/ ' . $genders->gender  : ''}} {{isset($currentCategory) ? '/ ' . $currentCategory : ''}} </p>
             <p><span style="color: #000; font-size: 20px;" class="font-italic">{{isset($currentCategory) ? $currentCategory : ''}}</span> <span class="font-italic">{{$currentGender ?  $genders->gender  : ''}}</span></p>
             <hr>
-            <span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
+            <div id="select1"><span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?sort=desc">Price High - Low</option>
                 <option value="{{URL::current()}}?sort=asc">Price Low - High</option>
             </select>
-            <span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> <select onchange="location = this.value;" class="mr-2" name="" id="">
+            </div>
+            <div id="select2"><span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> <select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?perPage=10">10</option>
                 <option value="{{URL::current()}}?perPage=20">20</option>
             </select>
-            <div class="d-inline text-capitalize">{{$product->links()}}</div>
+            </div>
+            <div class="d-inline text-capitalize">{{$product->appends(Request::query())->links()}}</div>
             <div class="row mt-2" id="shop-products">
                 @foreach($product as $products)
                 <div class="col-4 mb-4">
