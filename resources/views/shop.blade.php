@@ -7,7 +7,7 @@
 
     <div class="container" id="shop-container">
         <div class="row" >
-        <div class="col-2 mt-3">
+        <div class="col-2 mt-3 filter-list">
             <ul id="shop">
                 <li><a href="{{route('shop')}}/{{$currentGender ? $genders->gender: ''}}/Footwear">Footwear</a>
                 <ul>
@@ -82,21 +82,23 @@
         </div>
         <div class="col mt-2" id="shop-items">
             <p>Shop  {{$currentGender ? '/ ' . $genders->gender  : ''}} {{isset($currentCategory) ? '/ ' . $currentCategory : ''}} </p>
-            <p><span style="color: #000; font-size: 20px;" class="font-italic">{{isset($currentCategory) ? $currentCategory : ''}}</span> <span class="font-italic">{{$currentGender ?  $genders->gender  : ''}}</span></p>
+            <p><span style="color: #000; font-size: 1.25rem;" class="font-italic">{{isset($currentCategory) ? $currentCategory : ''}}</span> <span class="font-italic">{{$currentGender ?  $genders->gender  : ''}}</span></p>
             <hr>
-            <div id="select1"><span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
+            <span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?sort=desc">Price High - Low</option>
                 <option value="{{URL::current()}}?sort=asc">Price Low - High</option>
             </select>
-            </div>
-            <div id="select2"><span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> <select onchange="location = this.value;" class="mr-2" name="" id="">
+           
+            <span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> <select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?perPage=10">10</option>
                 <option value="{{URL::current()}}?perPage=20">20</option>
             </select>
-            </div>
-            <div class="d-inline text-capitalize">{{$product->appends(Request::query())->links()}}</div>
+            
+
+            <button class="filter-btn">Filter <i class="fas fa-search"></i></button>
+            
             <div class="row mt-2" id="shop-products">
                 @foreach($product as $products)
                 <div class="col-4 mb-4">
@@ -110,6 +112,7 @@
 
                 @endforeach
             </div>
+            <div class="text-capitalize my-2 text-center">{{$product->appends(Request::query())->links()}}</div>
         </div>
     </div>
     </div>

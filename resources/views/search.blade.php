@@ -7,7 +7,7 @@
 
     <div class="container">
         <div class="row" >
-        <div class="col-2 mt-3">
+        <div class="col-2 mt-3 filter-list">
             <ul id="shop">
                 <li><a href="{{URL::current()}}?keyword={{$search}}&category=footwear">Footwear</a>
                 <ul>
@@ -86,22 +86,25 @@
         <div class="col mt-2" id="shop-items">
             <p>Search Results / {{$search}}</p>
             @if($product->count() > 0)
-            <p><span style="color: #000; font-size: 20px;" class="font-italic">{{$product->firstItem()}} - {{$product->lastItem()}} OF {{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
+            <p><span style="color: #000; font-size: 1.25rem;" class="font-italic">{{$product->firstItem()}} - {{$product->lastItem()}} OF {{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
             @else
-                <p><span style="color: #000; font-size: 20px;" class="font-italic">{{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
+                <p><span style="color: #000; font-size: 1.25rem;" class="font-italic">{{$product->total()}} Results For: <span style="color: #999999">{{$search}}</span></span> <span class="font-italic"></span></p>
             @endif
                 <hr>
-            <span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span><select onchange="location = this.value;" class="mr-2" name="" id="">
+            <span class="mr-1 text-capitalize" style="color: #000;">Sort By:</span>
+            <select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&sort=desc">Price High - Low</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&sort=asc">Price Low - High</option>
             </select>
-            <span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> <select onchange="location = this.value;" class="mr-2" name="" id="">
+            <span class="mr-1 text-capitalize" style="color: #000;">Per Page:</span> 
+            <select onchange="location = this.value;" class="mr-2" name="" id="">
                 <option value="">Choose Option</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&perPage=10">10</option>
                 <option value="{{URL::current()}}?keyword={{$search}}&perPage=20">20</option>
             </select>
-            <div class="d-inline text-capitalize">{{$product->appends(Request::query())->links()}}</div>
+                <button class="filter-btn">Filter <i class="fas fa-search"></i></button>
+            
             <div class="row mt-2" id="shop-products">
                 @if($product->count() > 0)
                 @foreach($product as $products)
@@ -121,6 +124,8 @@
                     <div class="col-4 mt-3">We could not find that item</div>
                     @endif
             </div>
+
+            <div class="text-capitalize my-2 text-center">{{$product->appends(Request::query())->links()}}</div>
         </div>
     </div>
     </div>

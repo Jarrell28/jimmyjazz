@@ -293,7 +293,7 @@ class ShopController extends Controller
             });
         })->when($sort, function($query) use($sort){
             return $query->orderBy('price', $sort);
-        })->inRandomOrder()->paginate($perPage);
+        })->paginate($perPage);
 
 
         return view('search', compact('brand', 'product', 'categories', 'subcategories', 'genders', 'sizes', 'search', 'color'));

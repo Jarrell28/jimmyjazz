@@ -5,7 +5,7 @@
 
     <div class="container">
         <div class="row" >
-            <div class="col-2 mt-3">
+            <div class="col-2 mt-3" id="product-category">
                 <ul id="shop">
                     <li><a href="{{route('shop')}}/{{$currentGender ? $currentGender : ''}}/Footwear">Footwear</a>
                         <ul>
@@ -31,8 +31,8 @@
                         </ul>
             </div>
 
-            <div class="col-5 mt-2">
-                <p><a style="text-decoration: none; color: #999999; text-transform: uppercase; font-weight: bold" href="{{route('shop')}}">Shop</a> / <a style="text-decoration: none; color: #999999; text-transform: uppercase; font-weight: bold" href="{{route('shop.gender', [$currentGender])}}">{{$currentGender}}</a> </p>
+            <div class="col-5 mt-2" id="product-image-container">
+                <p><a style="text-decoration: none; color: #999999; text-transform: uppercase; font-weight: bold" href="{{route('shop.search')}}?keyword=">Shop</a> / <a style="text-decoration: none; color: #999999; text-transform: uppercase; font-weight: bold" href="{{route('shop.gender', [$currentGender])}}">{{$currentGender}}</a> </p>
 
                 <div id="product-image">
                 <img src="{{URL::to('/')}}/img/products/{{$product->image}}" alt="">
@@ -64,10 +64,10 @@
                     <input type="hidden" name="size" value="{{$product->size->size}}">
                     <input type="hidden" name="qty" value="1" id="quantity-value">
 
-                    {{--<button style="border: none; cursor:pointer;" type="submit" id="cart-button-submit">--}}
-                        {{--<img id="add-cart" src="http://www.jimmyjazz.com/images/add-to-cart.gif" alt="">--}}
-                    {{--</button>--}}
-                    <button type="submit">Add</button>
+                   <button style="border: none; cursor:pointer; width: 12rem" type="submit" id="cart-button-submit">
+                        <img id="add-cart" src="{{asset('img/icons/add-to-cart.gif')}}" alt="" style="width: 100%">
+                    </button>
+                
 
                 </form>
 
@@ -78,12 +78,12 @@
         </div>
     </div>
 
-    <div class="container mt-5 recommends-container">
+    <div class="container mt-5 recommends-container mb-3">
         <p class="text-center recommends">You Might Also Like</p>
-        <div class="row mt-5">
+        <div class="row mt-5 recommend-container">
             @foreach($recommend as $recommends)
-        <div class="col-2 ml-auto mr-auto">
-            <a class=" pl-0 recommends-links nav-link" href="{{route('product', [$currentGender, $recommends->title, $recommends->id])}}"><img style="width: 200px; height: 150px;" src="{{URL::to('/') }}/img/products/{{$recommends->image}}" alt="">
+        <div class="col-2">
+            <a class=" pl-0 recommends-links nav-link" href="{{route('product', [$currentGender, $recommends->title, $recommends->id])}}"><img style="width: 100%; height: 8rem; object-fit: contain" src="{{URL::to('/') }}/img/products/{{$recommends->image}}" alt="">
                 <h4 class="mb-0"><span class="recommends-span">{{$recommends->brand->brand}}</span></h4>
                 <h6 class="mb-0">{{$recommends->title}}</h6>
                 <h5 class="recommends-h5"><span class="recommends-span-2">Size {{$recommends->size->size}}</span></h5>

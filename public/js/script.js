@@ -21,3 +21,22 @@ $(document).click(function(e) {
         $('.search-results').hide();
     }
 });
+
+$(".filter-btn").click(function() {
+    $(".filter-list").toggleClass("active");
+});
+
+$(window).click(function(e) {
+    if(e.target === document.querySelector(".filter-btn")){
+        return;
+
+    } else {
+        if(!e.target.closest(".filter-list")){
+            $(".filter-list").removeClass("active");
+        }
+    }
+    
+
+    
+    
+})

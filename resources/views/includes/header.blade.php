@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
 <div class="fluid-container topNav-full-container">
 <div class="container topNav-container">
-    <nav class="navbar navbar-expand-sm navbar-light pt-0">
+    <nav class="navbar navbar-expand-md navbar-light pt-0">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,11 +52,10 @@
             </div>
             <div id="checkout-link" class="dropdown show">
                 <a  class="nav-link cart-link pb-0" href="{{route('shop.cart')}}">
-                    <img id="cart-img" class="mr-1 mb-3" src="{{URL::to('/')}}img/icons/cart.png" alt=""><span>Checkout</span><span class="ml-1">({{Cart::count()}})</span>
+                    <img id="cart-img" class="mr-1" src="{{URL::to('/')}}/img/icons/cart.png" alt=""><span>Checkout</span><span class="ml-1">({{Cart::count()}})</span>
                 </a>
 
-                <div  class="dropdown-menu shopping-bag pt-0 pb-0" id="checkout-dropdown" aria-labelledby="dropdownMen
-                        </div>uLink">
+                <div class="dropdown-menu shopping-bag pt-0 pb-0" id="checkout-dropdown" aria-labelledby="dropdownMenuLink">
                         <div class="shopping-bag-items">
 
                             @if(Cart::count() != 0)
@@ -87,7 +87,7 @@
                         <div class="text-uppercase font-weight-bold sub-total pl-3 pt-2 pb-2"><p class="mb-0">Items in shopping cart: {{Cart::count()}} <span id="sub-total-span">sub total: <span class="sub-total-price">${{Cart::subtotal()}}</span></span></p></div>
                         <div class="shopping-bag-checkout row">
                             <div class="shopping-bag-checkout-left col position-relative pr-0">
-                                <a id="close-button-link" role="button" class="pl-2 position-relative" data-dismiss="dropdown" aria-label="Close"><img id="close-button" src="{{URL::to('/')}}img/icons/close.png" alt=""></a>
+                                <!-- <a id="close-button-link" role="button" class="pl-2 position-relative" data-dismiss="dropdown" aria-label="Close"><img id="close-button" src="{{URL::to('/')}}/img/icons/close.png" alt=""></a> -->
                             </div>
                         <div class="shopping-bag-checkout-right col pl-0">
 <p class="mb-0 text-uppercase text-right"><a href="{{route('shop.cart')}}">Go to shopping cart &raquo;</a></p>
@@ -99,11 +99,11 @@
     </nav>
 
 
-    <nav class="navbar navbar-expand-sm navbar-light pt-0 pb-0 position-relative">
+    <nav class="navbar navbar-expand-md navbar-light pt-0 pb-0">
         <a class="navbar-brand mr-auto brand-name" href="{{URL::to('/')}}">Jimmy Clone</a>
             <form class="form-inline search-form" method="get" action="{{route('shop.search')}}">
                 <div class="input-group w-100 search-bar">
-                    <input id="search-bar" type="text" class="form-control search-bar-input p-0" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword" autocomplete="off">
+                    <input id="search-bar" type="text" class="form-control search-bar-input" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword" autocomplete="off">
                     <div class="input-group-append">
                         <button class="search-button" type="submit">Search &#128269;</button>
                     </div>
@@ -138,9 +138,9 @@
 
 
 
-    <nav  class="navbar navbar-expand-sm navbar-light pt-0 pb-0 text-uppercase mainNav ">
+    <nav  class="navbar navbar-expand-md navbar-light pt-0 pb-0 text-uppercase mainNav ">
         <main id='mainNav1' class="collapse navbar-collapse">
-            <ul   class="navbar-nav mr-auto">
+            <ul   class="navbar-nav">
                 <li class="nav-item dropdown" id="mainNav-link1">
                     <a class="nav-link" href="{{route('shop')}}/Mens">
                         Mens
@@ -149,7 +149,7 @@
                     <div  id="mainNav-dropdown1" class="dropdown-menu pt-0 first-dropdown" aria-labelledby="navbarDropdown">
                         <div class="container mainNav-links mb-4">
                             <div class="mainNav-links-container row">
-                                <div class="col mainNav-links-border-right">
+                                <div class="col-2 mainNav-links-border-right">
                         <a class="dropdown-item" href="{{route('shop')}}/Mens">Shop Mens</a>
                                     @foreach($categories as $category)
 
@@ -166,18 +166,18 @@
                                 </div>
                             </div>
 
-                                <div class="col mainNav-links-border-right">
+                                <div class="col-2 mainNav-links-border-right">
                                     <a class="dropdown-item" href="#">Top Brands</a>
                                     @foreach($brand as $brands)
                                         <a class="dropdown-item" href="{{route('shop')}}/Mens?brand={{$brands->id}}">{{$brands->brand}}</a>
                                     @endforeach
                                 </div>
 
-                                <div class="col pr-0">
-                                    <img src="http://www.jimmyjazz.com/customfiles/08_22_17_317x317_mens_dropdown_1.jpg" alt="">
+                                <div class="col-4 pr-0">
+                                    <img src="{{asset('img/icons/mens1.jpg')}}" alt="" style="width: 19.8rem">
                                 </div>
-                                <div class="col">
-                                    <img src="http://www.jimmyjazz.com/customfiles/08_22_17_317x317_mens_dropdown_2.jpg" alt="">
+                                <div class="col-2">
+                                    <img src="{{asset('img/icons/mens2.jpg')}}" alt="" style="width: 19.8rem">
                                 </div>
                             </div>
                     </div>
@@ -207,7 +207,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col mainNav-links-border-right">
+                                <div class="col-2 mainNav-links-border-right">
                                     <a class="dropdown-item" href="{{route('shop')}}/Womens">Top Brands</a>
                                     @foreach($brand as $brands)
                                         <a class="dropdown-item" href="{{route('shop')}}/Womens?brand={{$brands->id}}">{{$brands->brand}}</a>
@@ -215,7 +215,7 @@
                                 </div>
 
                                 <div class="col-5 pr-0">
-                                    <img src="http://www.jimmyjazz.com/sites/default/files/02_16_18_484x286-Nike-for-her.jpg" alt="">
+                                    <img src="{{asset('img/icons/women1.jpg')}}" alt="" style="width: 30.25rem">
                                 </div>
                             </div>
                     </div>
@@ -261,7 +261,7 @@
                                 </div>
 
                                 <div class="col-5 pr-0">
-                                    <img src="http://www.jimmyjazz.com/sites/default/files/kids-landing484x286.jpg" alt="">
+                                    <img src="{{asset('img/icons/kids1.jpg')}}" alt="" style="width: 30.25rem">
                                 </div>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                                 </div>
 
                                 <div class="col-5 pr-0">
-                                    <img src="http://www.jimmyjazz.com/customfiles/01_19_17_317x317_nike.jpg" alt="">
+                                    <img src="{{asset('img/icons/nike1.jpg')}}" alt="" style="width: 19.8rem">
                                 </div>
                             </div>
                         </div>
@@ -351,7 +351,7 @@
                                 </div>
 
                                 <div class="col-5 pr-0">
-                                    <img src="http://www.jimmyjazz.com/customfiles/01_19_317x317_dropdown_jordan.jpg" alt="">
+                                    <img src="{{asset('img/icons/jordan1.jpg')}}" alt="" style="width: 19.8rem">
                                 </div>
                             </div>
                         </div>
@@ -393,7 +393,7 @@
                                 </div>
 
                                 <div class="col-2 pr-0">
-                                    <img src="http://www.jimmyjazz.com/customfiles/06_12_17_317x317_dropdown_adidas.jpg" alt="">
+                                    <img src="{{asset('img/icons/adidas1.jpg')}}" alt="" style="width: 19.8rem">
                                 </div>
                             </div>
                         </div>
@@ -645,7 +645,7 @@
                                 </div>
 
                                 <div class="col-5">
-                                    <img src="http://www.jimmyjazz.com/customfiles/10_24_17_new_arrivals_dropdown_634x317.jpg" alt="">
+                                    <img src="{{asset('img/icons/arrivals1.jpg')}}" alt="" style="width: 39.625rem">
                                 </div>
                             </div>
                         </div>
@@ -688,7 +688,7 @@
                                 </div>
 
                                 <div class="col-5">
-                                    <img src="http://www.jimmyjazz.com/customfiles/4_6_17_634x317_sale_nav.jpg" alt="">
+                                    <img src="{{asset('img/icons/sale1.jpg')}}" alt="" style="width: 39.625rem">
                                 </div>
                             </div>
                         </div>
@@ -730,7 +730,7 @@
                                 </div>
 
                                 <div class="col-5">
-                                    <img src="http://www.jimmyjazz.com/customfiles/05_09_17_634x317_Clearance_dropdown.jpg" alt="">
+                                    <img src="{{asset('img/icons/clearance1.jpg')}}" alt="" style="width: 39.625rem">
                                 </div>
                             </div>
                         </div>
@@ -784,7 +784,7 @@
             </div>
         </nav>
         <div>
-            <p class="pl-3 pt-3">Payment Methods <img src="http://www.jimmyjazz.com/customfiles/sprite-footer-payment-methods.png" height="19" width="187"></p>
+            <p class="pl-3 pt-3">Payment Methods <img src="{{asset('img/icons/payments.png')}}" height="19" width="187"></p>
         </div>
         <div>
             <p></p>
